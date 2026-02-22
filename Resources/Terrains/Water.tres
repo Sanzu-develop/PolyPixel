@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TileResource" format=3 uid="uid://bqmqlwg2mgpkb"]
+
+[ext_resource type="Script" uid="uid://bmbnp1223f72k" path="res://Resources/GD/TileResource.gd" id="1_jqqle"]
+
+[resource]
+script = ExtResource("1_jqqle")
+name = "Água rasa"
+type = 1
+texture_idx = Vector2i(1, 0)
+top_pivot = Vector2(0, 3)
+metadata/_custom_type_script = "uid://bmbnp1223f72k"

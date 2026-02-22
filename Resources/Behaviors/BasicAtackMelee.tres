@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MeleeAtack" format=3 uid="uid://er8e7tlbtqpy"]
+
+[ext_resource type="Script" uid="uid://bxks5ennsgw4f" path="res://Resources/GD/Behavior/MeleeAtack.gd" id="1_y1y8v"]
+
+[resource]
+script = ExtResource("1_y1y8v")
+named = "Atack"
+metadata/_custom_type_script = "uid://bxks5ennsgw4f"

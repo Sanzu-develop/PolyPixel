@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PieceResource" format=3 uid="uid://bdwovixbgeie5"]
+
+[ext_resource type="Script" uid="uid://b2ulk3oxafl2d" path="res://Resources/GD/Behavior/BehaviorResource.gd" id="1_dsadc"]
+[ext_resource type="Resource" uid="uid://er8e7tlbtqpy" path="res://Resources/Behaviors/BasicAtackMelee.tres" id="2_6klqn"]
+[ext_resource type="Resource" uid="uid://bkktmxdqw2h50" path="res://Resources/Behaviors/BasicDamaged.tres" id="3_nenvl"]
+[ext_resource type="Resource" uid="uid://csfp58aylfy6h" path="res://Resources/Behaviors/BasicMoveToLocal.tres" id="4_83lwt"]
+[ext_resource type="Resource" uid="uid://vnv7p1gn31co" path="res://Resources/Behaviors/BasicPop.tres" id="5_nqigh"]
+[ext_resource type="Script" uid="uid://ba5i2ofohpa0m" path="res://Resources/GD/PieceResource.gd" id="6_sw58j"]
+[ext_resource type="Texture2D" uid="uid://ux7dej4rdcau" path="res://Sprites/Units/warrior.png" id="7_nmox2"]
+
+[resource]
+script = ExtResource("6_sw58j")
+name = "Cavaleiro"
+texture = ExtResource("7_nmox2")
+behavior = Dictionary[String, ExtResource("1_dsadc")]({
+"atack": ExtResource("2_6klqn"),
+"damaged": ExtResource("3_nenvl"),
+"move_to_local": ExtResource("4_83lwt"),
+"pop": ExtResource("5_nqigh")
+})
+metadata/_custom_type_script = "uid://ba5i2ofohpa0m"

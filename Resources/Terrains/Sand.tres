@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TileResource" format=3 uid="uid://bjoqrmwq0w78o"]
+
+[ext_resource type="Script" uid="uid://bmbnp1223f72k" path="res://Resources/GD/TileResource.gd" id="1_nmkig"]
+
+[resource]
+script = ExtResource("1_nmkig")
+name = "Areia"
+texture_idx = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://bmbnp1223f72k"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TileResource" format=3 uid="uid://da7ghenadkrdk"]
+
+[ext_resource type="Script" uid="uid://bmbnp1223f72k" path="res://Resources/GD/TileResource.gd" id="1_8lcqj"]
+
+[resource]
+script = ExtResource("1_8lcqj")
+name = "Campo"
+metadata/_custom_type_script = "uid://bmbnp1223f72k"

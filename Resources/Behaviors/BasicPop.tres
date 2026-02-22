@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Pop" format=3 uid="uid://vnv7p1gn31co"]
+
+[ext_resource type="Script" uid="uid://c70344gsq7r3d" path="res://Resources/GD/Behavior/pop.gd" id="1_7hoxj"]
+
+[resource]
+script = ExtResource("1_7hoxj")
+metadata/_custom_type_script = "uid://c70344gsq7r3d"

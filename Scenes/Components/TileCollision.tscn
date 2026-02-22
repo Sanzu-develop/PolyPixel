@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cdy58lkxsgxql"]
+
+[ext_resource type="Script" uid="uid://vgv5d1ok4pn1" path="res://Scripts/Components/tile_collision.gd" id="1_nxhdq"]
+
+[node name="Tile" type="Area2D" unique_id=1163463058 node_paths=PackedStringArray("collision_polygon")]
+script = ExtResource("1_nxhdq")
+collision_polygon = NodePath("CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=847796961]
+polygon = PackedVector2Array(-32, 0, 0, 32, 32, 0, 0, -32)

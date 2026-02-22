@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://cl8l73axj7cev"]
+
+[ext_resource type="Texture2D" uid="uid://bydd2dkros5ry" path="res://Sprites/GroundTiles.png" id="1_2d7bo"]
+[ext_resource type="Script" uid="uid://dfnyrmwb5euu" path="res://Scripts/Scenes/tabuleiro.gd" id="1_gkp6g"]
+[ext_resource type="Script" uid="uid://cuhlvlv7h7tuy" path="res://Scripts/Components/BaseCamera.gd" id="4_2d7bo"]
+[ext_resource type="PackedScene" uid="uid://77dtm0aubb5p" path="res://Scenes/Unidade/unidade.tscn" id="4_pevhb"]
+[ext_resource type="Resource" uid="uid://da7ghenadkrdk" path="res://Resources/Terrains/Grass.tres" id="5_pevhb"]
+[ext_resource type="Resource" uid="uid://cpdgd1bs76ib5" path="res://Resources/Pieces/Warrior.tres" id="6_1hq5i"]
+[ext_resource type="Resource" uid="uid://bjoqrmwq0w78o" path="res://Resources/Terrains/Sand.tres" id="6_nbaxm"]
+[ext_resource type="Resource" uid="uid://bqmqlwg2mgpkb" path="res://Resources/Terrains/Water.tres" id="6_xxd8j"]
+[ext_resource type="Resource" uid="uid://bv5jj1g8y80cb" path="res://Resources/Terrains/MediumWater.tres" id="7_m1536"]
+[ext_resource type="Resource" uid="uid://nxg0vcnf0ue" path="res://Resources/Terrains/LargeWater.tres" id="8_qnm45"]
+[ext_resource type="Resource" uid="uid://bdwovixbgeie5" path="res://Resources/Pieces/Knight.tres" id="10_m1536"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkhup"]
+texture = ExtResource("1_2d7bo")
+texture_region_size = Vector2i(31, 30)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xuw6c"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(31, 15)
+sources/0 = SubResource("TileSetAtlasSource_vkhup")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1536"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.008999998, 0.008999998, 0.6)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Tabuleiro" type="TileMapLayer" unique_id=1418605463]
+tile_set = SubResource("TileSet_xuw6c")
+
+[node name="BoardManager" type="Node2D" parent="." unique_id=1303278952 node_paths=PackedStringArray("drawer_polygon", "tile_spawn", "unit_parent", "cam", "panel")]
+script = ExtResource("1_gkp6g")
+unit_scene = ExtResource("4_pevhb")
+distance = Vector2(15.5, 7.5)
+pivot = Vector2(15.5, 0)
+drawer_polygon = NodePath("../SelectedTileDraw")
+tile_spawn = NodePath("../Tile_Spawn")
+unit_parent = NodePath("../Unidades")
+cam = NodePath("../Camera2D")
+panel = NodePath("../CanvasLayer/Bases/MarginContainer/Panel")
+grounds = Dictionary[String, Object]({
+"grass": ExtResource("5_pevhb"),
+"largewater": ExtResource("8_qnm45"),
+"mediumwater": ExtResource("7_m1536"),
+"sand": ExtResource("6_nbaxm"),
+"water": ExtResource("6_xxd8j")
+})
+units = Dictionary[String, Object]({
+"knight": ExtResource("10_m1536"),
+"warrior": ExtResource("6_1hq5i")
+})
+
+[node name="Tile_Spawn" type="Node2D" parent="." unique_id=1103564490]
+modulate = Color(1, 1, 1, 0.3529412)
+
+[node name="SelectedTileDraw" type="Polygon2D" parent="." unique_id=1612373475]
+color = Color(1, 1, 1, 0.33333334)
+
+[node name="Unidades" type="Node2D" parent="." unique_id=1042918706]
+position = Vector2(0, 12.5)
+
+[node name="Player0" type="Node2D" parent="Unidades" unique_id=808852496]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1287663639]
+script = ExtResource("4_2d7bo")
+min_zoom = 0.1
+smoothing = 9.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1366845944]
+
+[node name="Bases" type="Control" parent="CanvasLayer" unique_id=690112023]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Bases" unique_id=187247162]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Bases/MarginContainer" unique_id=1663214888]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m1536")
+
+[node name="BG" type="CanvasLayer" parent="." unique_id=220303218]
+layer = -50
+
+[node name="BackGround" type="ColorRect" parent="BG" unique_id=482092693]
+z_index = -50
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23893332, 0.192, 0.32, 1)

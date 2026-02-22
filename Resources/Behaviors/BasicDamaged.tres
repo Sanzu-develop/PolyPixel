@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DamagedResource" format=3 uid="uid://bkktmxdqw2h50"]
+
+[ext_resource type="Script" uid="uid://crvxagse7an3s" path="res://Resources/GD/Behavior/DamagedResource.gd" id="1_t4vey"]
+
+[resource]
+script = ExtResource("1_t4vey")
+named = "Damaged"
+metadata/_custom_type_script = "uid://crvxagse7an3s"

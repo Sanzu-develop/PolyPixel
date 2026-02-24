@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://77dtm0aubb5p"]
 
 [ext_resource type="Script" uid="uid://xfpq3ux7p2yr" path="res://Scripts/Unidades/unidade.gd" id="1_bx2s3"]
+[ext_resource type="Script" uid="uid://devedjggrsabd" path="res://Resources/GD/ResourceAction.gd" id="2_lus6m"]
 [ext_resource type="Texture2D" uid="uid://ux7dej4rdcau" path="res://Sprites/Units/warrior.png" id="2_sy64s"]
+
+[sub_resource type="Resource" id="Resource_g0ots"]
+script = ExtResource("2_lus6m")
+metadata/_custom_type_script = "uid://devedjggrsabd"
 
 [node name="Unidade" type="Node2D" unique_id=1671590474 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_bx2s3")
 sprite = NodePath("Sprite2D")
+act_r = SubResource("Resource_g0ots")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1909870379]
 texture = ExtResource("2_sy64s")

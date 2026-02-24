@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Warrios"
+config/name="PolyPixel"
+config/description="Um jogo de Estrategia e Evolução"
 run/main_scene="uid://cl8l73axj7cev"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"

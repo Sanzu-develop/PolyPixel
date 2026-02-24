@@ -1,0 +1,3 @@
+res://Scenes/Unidade/unidade.tscn
+res://Scripts/Unidades/unidade.gd
+res://Resources/GD/Behavior/MeleeAtack.gd

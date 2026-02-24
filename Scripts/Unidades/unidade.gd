@@ -3,6 +3,7 @@ class_name Unit
 
 @export var sprite : Sprite2D
 @export var data: PieceResource
+@export var act_r : ActionResource = ActionResource.new()
 var current_hp: int = 10
 var tile : Vector2i
 
@@ -13,6 +14,8 @@ func _ready():
 	if data:
 		current_hp = data.max_health
 		sprite.texture = data.texture
+	if act_r:
+		act_r = act_r.duplicate(true)
 
 func get_valid_moves(current_pos: Vector2i,type : String = "move") -> Array[Vector2i]:
 	var moves: Array[Vector2i] = []
@@ -46,9 +49,8 @@ func move_to_local(local: Vector2):
 	var behavior = "move_to_local"
 	if not data.behavior.has(behavior): return
 	
-	var ar_ = ActionResource.new()
-	ar_.local = local
-	var ar = get_ar(ar_)
+	var ar = get_ar()
+	ar.local = local
 	
 	var current_behavior = data.behavior[behavior]
 	current_behavior.execute(ar)
@@ -66,11 +68,10 @@ func damaged(count : int,target : Node2D, respost : bool = true):
 	var behavior = "damaged"
 	if not data.behavior.has(behavior): return
 	
-	var ar_ = ActionResource.new()
-	ar_.target = target
-	ar_.damaged = count
-	ar_.respost = respost
-	var ar = get_ar(ar_)
+	var ar = get_ar()
+	ar.target = target
+	ar.damaged = count
+	ar.respost = respost
 	
 	var current_behavior = data.behavior[behavior]
 	current_behavior.execute(ar)
@@ -79,10 +80,9 @@ func atack(target : Node2D,accept_respost : bool = true):
 	var behavior = "atack"
 	if not data.behavior.has(behavior): return
 	
-	var ar_ = ActionResource.new()
-	ar_.target = target
-	ar_.respost = accept_respost
-	var ar = get_ar(ar_)
+	var ar = get_ar()
+	ar.target = target
+	ar.respost = accept_respost
 	
 	var current_behavior = data.behavior[behavior]
 	current_behavior.execute(ar)
@@ -90,8 +90,9 @@ func atack(target : Node2D,accept_respost : bool = true):
 func get_tile(new_tile : Vector2i):
 	tile = new_tile
 
-func get_ar(ar_ : ActionResource = ActionResource.new()) -> ActionResource:
-	var ar = ar_.duplicate()
+func get_ar() -> ActionResource:
+	
+	var ar = act_r.duplicate(true)
 	
 	ar.user = self
 	ar.damage = data.damage
